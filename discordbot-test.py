@@ -70,7 +70,7 @@ async def on_message(message):
 !info ... 会社全体の納品数などの情報を確認します(未実装)
 !add (社長+副社長のみ) ... 社員の納品数を追加します(未実装)
 !chance (社長+副社長のみ)... ネザーチャンスルーレットをします(未実装)
-!check admin [調べたい人のMCID] (社長+副社長のみ) ... 社員全員の納品数、レベル等を確認します。また納品数等の修正も行えます。
+!check admin (社長+副社長のみ) ... 社員全員の納品数、レベル等を確認します。また納品数等の修正も行えます。(未実装)
 ```
 """)
 
@@ -136,8 +136,8 @@ async def on_message(message):
             await client.send_message(message.channel, """**ERROR:未登録**
             あなたはまだこのBOTのユーザーとして登録されていない状態 or 登録当時の名前と現在のdiscordの名前が違う -- @みたらしだんご#9788まで お問い合わせください""")
 
-    elif message.content.startswith("!check admin"):
-        if message.author.name == "Sh_nezikin_" or "Crane_今日もいい天気" or "ゆた/yuta1211" or "みたらしだんご":
+    if message.author.name == "Sh_nezikin_" or "Crane_今日もいい天気" or "ゆた/yuta1211" or "みたらしだんご":
+        if message.content.startswith("!check admin"):
             if message.content[13:] == "Sh_nezikin_":
                 await client.send_message(message.channel, """```MCID: Sh_nezikin_
 ランク: {0}
@@ -198,8 +198,6 @@ async def on_message(message):
                 await client.send_message(message.channel, """使い方: ```!check admin MCID```
 MCIDで使える人は:```Sh_nezikin_, Crane0512, yuta1211, syunseki, himajima, ODANGO1012, Yomi_aya, LagiacrusTaishi, mikirisi, you91415519, waka3126, tetti_00, hasuina, kome628```""")
 
-        else:
-            await client.send_message(message.channel,"ERROR: 権限がありません!")
 
 
 
